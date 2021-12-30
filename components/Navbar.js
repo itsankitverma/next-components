@@ -27,7 +27,7 @@ const Navbar = () => {
       },
     },
   ];
-  const contact = "Contact";
+  const contact = "Contact Us";
   return (
     <div>
       <div className="w-full bg-gray-800 text-gray-200 flex justify-between h-16 items-center md:px-40 px-7">
