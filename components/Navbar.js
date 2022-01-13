@@ -1,11 +1,12 @@
 import { useRouter } from "next/dist/client/router";
 import React, { useState } from "react";
 import { MenuIcon } from "@heroicons/react/outline";
+import FlagStatus from "./FlagStatus";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const route = useRouter();
-  const title = "Navbar";
+  const title = "Note Today";
 
   const navData = [
     {
@@ -33,10 +34,10 @@ const Navbar = () => {
       <div className="w-full bg-gray-800 text-gray-200 flex justify-between h-16 items-center md:px-40 px-7">
         <div>
           <p
-            className="text-2xl cursor-pointer"
+            className="text-2xl cursor-pointer flex items-center"
             onClick={() => route.push("/")}
           >
-            {title}
+            <span>{title}</span> <span className="mt-3 pl-1 text-xs"><FlagStatus /></span>
           </p>
         </div>
         <div className="md:flex gap-7 hidden">
