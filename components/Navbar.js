@@ -29,6 +29,7 @@ const Navbar = () => {
     },
   ];
   const contact = "Contact Us";
+  const signUp = "Sign Up";
   return (
     <div>
       <div className="w-full bg-gray-800 text-gray-200 flex justify-between h-16 items-center md:px-40 px-7">
@@ -54,14 +55,24 @@ const Navbar = () => {
             );
           })}
         </div>
-        <button
-          className="bg-blue-600 text-white p-1 rounded-full px-4 focus:bg-blue-500 md:block hidden"
-          onClick={() => {
-            route.push("/contact");
-          }}
-        >
-          {contact}
-        </button>
+        <div className=" flex items-center gap-2">
+          <button
+            className="bg-blue-600 text-white p-1 rounded-full px-4 focus:bg-blue-500 md:block hidden"
+            onClick={() => {
+              route.push("/contact");
+            }}
+          >
+            {contact}
+          </button>
+          <button
+            className="bg-blue-600 text-white p-1 rounded-full px-4 focus:bg-blue-500 md:block hidden"
+            onClick={() => {
+              route.push("/signup");
+            }}
+          >
+            {signUp}
+          </button>
+        </div>
         <MenuIcon
           className="w-8 md:hidden block"
           onClick={() => setOpen(!open)}
