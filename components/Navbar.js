@@ -22,14 +22,15 @@ const Navbar = () => {
       },
     },
     {
-      title: "About",
+      title: "Contact Us",
       handlePath: () => {
-        route.push("/about");
+        route.push("/contact");
       },
     },
   ];
-  const contact = "Contact Us";
+
   const signUp = "Sign Up";
+  const login = "Login";
   return (
     <div>
       <div className="w-full bg-gray-800 text-gray-200 flex justify-between h-16 items-center md:px-40 px-7">
@@ -59,18 +60,19 @@ const Navbar = () => {
           <button
             className="bg-blue-600 text-white p-1 rounded-full px-4 focus:bg-blue-500 md:block hidden"
             onClick={() => {
-              route.push("/contact");
-            }}
-          >
-            {contact}
-          </button>
-          <button
-            className="bg-blue-600 text-white p-1 rounded-full px-4 focus:bg-blue-500 md:block hidden"
-            onClick={() => {
               route.push("/signup");
             }}
           >
             {signUp}
+          </button>
+
+          <button
+            className="bg-blue-600 text-white p-1 rounded-full px-4 focus:bg-blue-500 md:block hidden"
+            onClick={() => {
+              route.push("/signin");
+            }}
+          >
+            {login}
           </button>
         </div>
         <MenuIcon

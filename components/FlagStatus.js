@@ -23,7 +23,7 @@ const FlagStatus = () => {
 
     return (
         <div>
-            {isFlagStatus}
+            <span>{isFlagStatus}</span>
         </div>
     )
 }

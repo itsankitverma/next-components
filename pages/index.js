@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../lib/firebase";
+import FetchByTitle from "../components/FetchByTitle";
 
 function Index() {
   const [state, setstate] = useState("");
@@ -43,6 +44,10 @@ function Index() {
         >
           Send
         </button>
+
+        {/* get the specific data by using where clause */}
+
+        <FetchByTitle />
       </div>
     </div>
   );
