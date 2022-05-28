@@ -15,22 +15,20 @@ const SubCollection = () => {
             console.log("No user defined");
         } else {
             const getData = async () => {
-                const db = getFirestore()
-                const q = query(collection(db, "users"))
-                const snapshot = await getDocs(q)
-                const data = snapshot.docs.map((doc) => ({
-                    ...doc.data(), id: doc.id
+              const db = getFirestore()
+              const q = query(collection(db, 'users'))
+              const snapshot = await getDocs(q)
+              const data = snapshot.docs.map((doc)=>({
+                  ...doc.data(), id:doc.id
+              }))
+              data.map(async (elem)=>{
+                const workQ = query(collection(db, `users/${elem.id}/workInfo`))
+                const workDetails = await getDocs(workQ)
+                const workInfo = workDetails.docs.map((doc)=>({
+                    ...doc.data(), id:doc.id
                 }))
-
-                data.map(async (elem) => {
-                    const workQ = query(collection(db, `users/${elem.id}/workInfo`))
-                    const workSnapshot = await getDocs(workQ)
-                    const workData = workSnapshot.docs.map((doc) => ({
-                        ...doc.data(), id: doc.id
-                    }))
-
-                    setWorkData(workData);
-                })
+                setWorkData(workInfo);
+              })
             }
             getData()
 
@@ -75,14 +73,14 @@ const SubCollection = () => {
                     {user && <div className='flex flex-col gap-5 items-center justify-center'>
                         <p className='text-3xl font-bold'>Sub-Collection</p>
                         <div>
-                            {workData.map((elem) => {
-                                return (
-                                    <div key={elem.id} className="w-full text-center">
-                                        <p>{elem.company}</p>
-                                        <p>{elem.started}</p>
-                                    </div>
-                                )
-                            })}
+                           {workData.map((elem)=>{
+                               return(
+                                   <div key={elem.id} className='w-full text-center'>
+                                       <p>{elem.company}</p>
+                                       <p>{elem.started}</p>
+                                   </div>
+                               )
+                           })}
                         </div>
                     </div>}
                 </div>
